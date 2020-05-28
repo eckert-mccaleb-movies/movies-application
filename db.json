@@ -11,44 +11,39 @@
       "id": 2
     },
     {
+      "title": "A Bug's Life",
+      "rating": "3",
+      "id": 3
+    },
+    {
       "title": "Toy Story",
       "rating": "5",
       "id": 4
     },
     {
-      "title": "Finding Nemo",
-      "rating": "5",
+      "title": "Top Gun",
+      "rating": "4",
       "id": 5
     },
     {
-      "title": "Matrix",
-      "rating": "5",
+      "title": "Hercules",
+      "rating": "3",
       "id": 6
     },
     {
-      "title": "Matrix 2",
+      "title": "Flubber",
       "rating": "5",
       "id": 7
     },
     {
-      "title": "Into the Wild",
+      "title": "Iron Giant",
       "rating": "5",
       "id": 8
     },
     {
-      "title": "Bugs life",
+      "title": "Aladdin",
       "rating": "5",
       "id": 9
-    },
-    {
-      "title": "Sound and Fury",
-      "rating": "5",
-      "id": 10
-    },
-    {
-      "title": "Sound and Fury",
-      "rating": "5",
-      "id": 11
     }
   ]
 }

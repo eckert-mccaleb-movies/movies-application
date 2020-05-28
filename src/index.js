@@ -57,11 +57,15 @@ const {getMovies} = require('./api.js');
         .catch(response => console.log('Failed'));
 
 
-    updateMovieList()
+    updateMovieList();
+    $('#mtitle').val('');
+    $('#mrating').val('');
+    $('#movieDropDown').html('');
+    modifyMovieList();
 
   });
 
-//=======================================================
+// function to populate dropdown menu with movies
   function modifyMovieList() {
 
     getMovies()
@@ -83,18 +87,23 @@ const {getMovies} = require('./api.js');
   }
 modifyMovieList();
 
+// funtion that finds and populates movie for editing
+function findMovie() {
+        getMovies()
+            
+            .then((movies) => {
+                let dropDownId = (
+                    $('#movieDropDown').val()
+                );
+                console.log(dropDownId);
+                $('#mtitle').val(movies[dropDownId - 1].title);
+                $('#mrating').val(movies[dropDownId - 1].rating);
+            });
+}
 
-  $('#dropDownButton').click((e) => {
+// event listener for find-movie button
+$('#dropDownButton').click((e) => {
     e.preventDefault();
+    findMovie();
+});
 
-    getMovies()
-
-        .then((movies) => {
-          console.log(movies[0].title);
-          $('#editMovieForm').append(
-              `<input type="text" id="mtitleEdit" name="mtitleEdit" value="${movies.title}">`
-          )
-
-        })
-
-  });
