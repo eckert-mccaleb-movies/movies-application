@@ -87,7 +87,7 @@ const {getMovies} = require('./api.js');
   }
 modifyMovieList();
 
-// funtion that finds and populates movie for editing
+// function that finds and populates movie for editing
 function findMovie() {
         getMovies()
             
@@ -107,3 +107,37 @@ $('#dropDownButton').click((e) => {
     findMovie();
 });
 
+// function to update movie in db
+function updateMovie() {
+    const newTitle = $('#mtitle').val();
+    const newRating = $('#mrating').val();
+    
+    const moviePatchTest = {title: `${newTitle}`, rating: `${newRating}`};
+    const url = '/api/movies';
+    const options = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(moviePatchTest),
+        completed: true
+    };
+    fetch(url, options)
+        .then(response => {
+            return response.json();
+        })
+        .catch(response => console.log('Failed'));
+    
+    
+    updateMovieList();
+    $('#mtitle').val('');
+    $('#mrating').val('');
+    $('#movieDropDown').html('');
+    modifyMovieList();
+}
+
+// event listener for update-movie button
+$('#mbutton-update').click((e) => {
+    e.preventDefault();
+    updateMovie();
+});
