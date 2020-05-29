@@ -1,4 +1,7 @@
-const $ = require('jquery');
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/popper.js/dist/popper.min.js';
+import $ from 'jquery';
 
 /**
  * es6 modules and imports
