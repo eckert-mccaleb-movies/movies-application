@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>My Application</title>
-    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
@@ -12,22 +12,26 @@
         <h1 id="loading-message">Loading...</h1>
     </div>
 <!--        <button type="" value="${id}" class="deleteBtn">Delete</button>-->
+    <div>
+        <form>
+            <label for="mtitle">Movie title: </label>
+            <input type="text" id="mtitle" name="mtitle">
+            <br>
+            <label for="mrating">Rating: </label>
+            <input type="text" id="mrating" name="mrating">
+            <button type="submit" id="mbutton">Add Movie</button>
+            <button type="submit" id="mbutton-update">Update Movie</button>
+        </form>
+    
+        <form id="editMovieForm">
+            <select id="movieDropDown"></select>
+            <button id="dropDownButton" type="submit">Find Movie</button>
+        </form>
+    </div>
 
-    <form>
-        <label for="mtitle">Movie title: </label>
-        <input type="text" id="mtitle" name="mtitle">
-        <br>
-        <label for="mrating">Rating: </label>
-        <input type="text" id="mrating" name="mrating">
-        <button type="submit" id="mbutton">Add Movie</button>
-        <button type="submit" id="mbutton-update">Update Movie</button>
-    </form>
 
-    <form id="editMovieForm">
-        <select id="movieDropDown"></select>
-        <button id="dropDownButton" type="submit">Find Movie</button>
-    </form>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
 </body>
 </html>
