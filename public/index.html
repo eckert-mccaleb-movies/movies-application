@@ -12,18 +12,24 @@
 <div class="container-fluid">
 
     <div class="row">
-        <nav class="navbar bg-light col-12 d-flex justify-content-between" style="background-color: #7b8284;">
-            <form class="flex-fill d-flex justify-content-around">
-                <label for="mtitle">Movie title: </label>
-                <input type="text" id="mtitle" name="mtitle">
-                <label for="mrating">Rating: </label>
-                <input type="text" id="mrating" name="mrating">
-                <button class="btn btn-outline-secondary" type="submit" id="mbutton">Add Movie</button>
-                <button class="btn btn-outline-secondary" type="submit" id="mbutton-update">Update Movie</button>
+        <nav class="navbar bg-dark col-12 d-flex justify-content-between sticky-top" style="background-color: #7b8284;">
+            <form class="flex-fill d-flex justify-content-around" style="width: 50vw; height: 75%;">
+                <div class="form-group row">
+                    <label class="text-white col-form-label col-5" for="mtitle">Movie title: </label>
+                    <input class="form-control col-7" type="text" id="mtitle" name="mtitle">
+                </div>
+                <div class="form-group row">
+                    <label class="text-white col-form-label col-4" for="mrating">Rating: </label>
+                    <input class="form-control col-8" type="text" id="mrating" name="mrating">
+                </div>
+                <button class="btn btn-outline-danger" type="submit" id="mbutton">Add Movie</button>
+                <button class="btn btn-outline-danger" type="submit" id="mbutton-update">Update Movie</button>
             </form>
             <form id="editMovieForm">
-                <select id="movieDropDown"></select>
-                <button class="btn btn-outline-secondary" id="dropDownButton" type="submit">Find Movie</button>
+                <select id="movieDropDown">
+                    <option class="text-center" selected>-- Choose Movie --</option>
+                </select>
+                <button class="btn btn-outline-danger" id="dropDownButton" type="submit">Find Movie</button>
             </form>
 
         </nav>
@@ -48,7 +54,7 @@
 
 
     <div class="row">
-        <div class="movieBucket card-columns d-inline-flex flex-wrap mx-auto">
+        <div class="movieBucket card-columns d-inline-flex flex-wrap mx-auto container justify-content-center">
             <h1 id="loading-message">Loading...</h1>
         </div>
     </div>
