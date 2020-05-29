@@ -20,7 +20,7 @@ const {getMovies} = require('./api.js');
       console.log(movies);
       movies.forEach(({title, rating, id}) => {
         // console.log(`id#${id} - ${title} - rating: ${rating}`);
-        $('.container').append(`<div>id#${id} - ${title} - rating: ${rating}</div>`);
+        $('.container').append(`<div>id#${id} - ${title} - rating: ${rating}<button type="submit" value="${id}" class="deleteBtn">Delete</button></div>`);
       });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -65,6 +65,7 @@ const {getMovies} = require('./api.js');
 
   });
 
+//=======================================================
 // function to populate dropdown menu with movies
   function modifyMovieList() {
 
@@ -87,6 +88,7 @@ const {getMovies} = require('./api.js');
   }
 modifyMovieList();
 
+//=======================================================
 // function that finds and populates movie for editing
 function findMovie() {
         getMovies()
@@ -95,7 +97,7 @@ function findMovie() {
                 let dropDownId = (
                     $('#movieDropDown').val()
                 );
-                console.log(dropDownId);
+                // console.log(dropDownId);
                 $('#mtitle').val(movies[dropDownId - 1].title);
                 $('#mrating').val(movies[dropDownId - 1].rating);
             });
@@ -107,16 +109,21 @@ $('#dropDownButton').click((e) => {
     findMovie();
 });
 
+//=======================================================
 // function to update movie in db
 function updateMovie() {
     const newTitle = $('#mtitle').val();
     const newRating = $('#mrating').val();
+    let dropDownId = (
+        $('#movieDropDown').val()
+    );
     
     const moviePatchTest = {title: `${newTitle}`, rating: `${newRating}`};
-    const url = '/api/movies';
+    const url = `/api/movies/${dropDownId}`;
     const options = {
         method: 'PATCH',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(moviePatchTest),
@@ -141,3 +148,43 @@ $('#mbutton-update').click((e) => {
     e.preventDefault();
     updateMovie();
 });
+
+//=======================================================
+
+function deleteMovie() {
+    let dropDownId = (
+        $('#movieDropDown').val()
+    );
+
+    const moviePatchTest = {title: `${newTitle}`, rating: `${newRating}`};
+    const url = `/api/movies/${dropDownId}`;
+    const options = {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(moviePatchTest),
+        completed: true
+    };
+    fetch(url, options)
+        .then(response => {
+            return response.json();
+        })
+        .catch(response => console.log('Failed'));
+
+
+    updateMovieList();
+    $('#mtitle').val('');
+    $('#mrating').val('');
+    $('#movieDropDown').html('');
+    modifyMovieList();
+}
+
+$(document).on('click', '.deleteBtn', function () {
+   console.log('test test test')
+});
+
+// $('.deleteBtn').click((e) => {
+//     e.preventDefault();
+// });
