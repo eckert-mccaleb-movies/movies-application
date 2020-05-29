@@ -21,13 +21,15 @@ const {getMovies} = require('./api.js');
       movies.forEach(({title, rating, id}) => {
         // console.log(`id#${id} - ${title} - rating: ${rating}`);
         $('.movieBucket').append(
-            `<div class="card m-1" style="width: 17rem;">
-                <div class="card-body p-0"> 
-                    <div class="card-header d-flex justify-content-center">${title}</div> 
-                    <p class="card-text d-flex justify-content-center"> Rating: ${rating} </p> 
-                    <p class="card-text d-flex justify-content-center"> id#${id} </p> 
+            `<div class="card m-3 d-flex flex-column" style="width: 15rem; height: 17rem;">
+                <div class="card-header d-flex justify-content-center">${title}</div>
+                <div class="card-body p-0">
+                    <p class="card-text d-flex justify-content-center">Rating: ${rating}</p>
+                    <p class="card-text d-flex justify-content-center">Movie #: ${id}</p>
                 </div>
-                <button type="submit" value="${id}" class="deleteBtn btn btn-outline-danger">Delete</button>
+                <div class="card-footer d-flex justify-content-center">
+                    <button type="submit" value="${id}" class="deleteBtn btn btn-outline-danger">Delete</button>
+                </div>
             </div>`
         );
       });
