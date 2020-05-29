@@ -16,11 +16,20 @@ const {getMovies} = require('./api.js');
 //adds movies from json movie list to html
   function updateMovieList() {
     getMovies().then((movies) => {
-      $('.container').html('');
+      $('.movieBucket').html('');
       console.log(movies);
       movies.forEach(({title, rating, id}) => {
         // console.log(`id#${id} - ${title} - rating: ${rating}`);
-        $('.container').append(`<div>id#${id} - ${title} - rating: ${rating}<button type="submit" value="${id}" class="deleteBtn">Delete</button></div>`);
+        $('.movieBucket').append(
+            `<div class="card m-1" style="width: 17rem;">
+                <div class="card-body p-0"> 
+                    <div class="card-header d-flex justify-content-center">${title}</div> 
+                    <p class="card-text d-flex justify-content-center"> Rating: ${rating} </p> 
+                    <p class="card-text d-flex justify-content-center"> id#${id} </p> 
+                </div>
+                <button type="submit" value="${id}" class="deleteBtn btn btn-outline-danger">Delete</button>
+            </div>`
+        );
       });
     }).catch((error) => {
       alert('Oh no! Something went wrong.\nCheck the console for details.');
