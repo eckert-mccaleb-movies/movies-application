@@ -111,12 +111,16 @@ $('#dropDownButton').click((e) => {
 function updateMovie() {
     const newTitle = $('#mtitle').val();
     const newRating = $('#mrating').val();
+    let dropDownId = (
+        $('#movieDropDown').val()
+    );
     
     const moviePatchTest = {title: `${newTitle}`, rating: `${newRating}`};
-    const url = '/api/movies';
+    const url = `/api/movies/${dropDownId}`;
     const options = {
         method: 'PATCH',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(moviePatchTest),
