@@ -1,11 +1,6 @@
 {
   "movies": [
     {
-      "title": "Casablanca",
-      "rating": "4",
-      "id": 1
-    },
-    {
       "title": "Star Wars: A New Hope",
       "rating": "5",
       "id": 2
@@ -27,18 +22,43 @@
     },
     {
       "title": "Hercules",
-      "rating": "3",
+      "rating": "4",
       "id": 6
     },
     {
       "title": "Iron Giant",
-      "rating": "5",
+      "rating": "4",
       "id": 8
     },
     {
       "title": "Aladdin",
       "rating": "5",
       "id": 9
+    },
+    {
+      "title": "Into the Wild",
+      "rating": "5",
+      "id": 10
+    },
+    {
+      "title": "Sound and Fury",
+      "rating": "5",
+      "id": 11
+    },
+    {
+      "title": "Princess Bride",
+      "rating": "5",
+      "id": 12
+    },
+    {
+      "title": "Fast and Furious",
+      "rating": "",
+      "id": 13
+    },
+    {
+      "title": "Toy Soldiers",
+      "rating": "4",
+      "id": 14
     }
   ]
 }
