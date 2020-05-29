@@ -97,9 +97,11 @@ function findMovie() {
                 let dropDownId = (
                     $('#movieDropDown').val()
                 );
+                const findMovie = movies.filter(movie => movie.id == dropDownId);
+                // console.log(findMovie);
                 // console.log(dropDownId);
-                $('#mtitle').val(movies[dropDownId - 1].title);
-                $('#mrating').val(movies[dropDownId - 1].rating);
+                $('#mtitle').val(findMovie[0].title);
+                $('#mrating').val(findMovie[0].rating);
             });
 }
 
@@ -150,16 +152,16 @@ $('#mbutton-update').click((e) => {
 });
 
 //=======================================================
-
+// function to delete movie
 function deleteMovie() {
     let dropDownId = (
         $('#movieDropDown').val()
     );
 
-    const moviePatchTest = {title: `${newTitle}`, rating: `${newRating}`};
+    const moviePatchTest = {};
     const url = `/api/movies/${dropDownId}`;
     const options = {
-        method: 'PATCH',
+        method: 'DELETE',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
@@ -181,10 +183,8 @@ function deleteMovie() {
     modifyMovieList();
 }
 
+// event listener for movie delete button
 $(document).on('click', '.deleteBtn', function () {
-   console.log('test test test')
+   console.log('test test test');
+   deleteMovie();
 });
-
-// $('.deleteBtn').click((e) => {
-//     e.preventDefault();
-// });
