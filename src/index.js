@@ -152,7 +152,7 @@ $('#mbutton-update').click((e) => {
 });
 
 //=======================================================
-
+// function to delete movie
 function deleteMovie() {
     let dropDownId = (
         $('#movieDropDown').val()
